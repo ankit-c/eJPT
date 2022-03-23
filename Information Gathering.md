@@ -40,6 +40,7 @@ This page contains all the useful command and tools used for information gatheri
  * [dnsdumpster.com](https://dnsdumpster.com/)
  * [sublist3r](https://github.com/aboul3la/Sublist3r)
   ```
-  sublist3r -d example.com  | -d : searches for subdomain
+  sublist3r -d example.com
  ```
+   where flag **-d** : searches for subdomain
  * [virustotal.com](https://www.virustotal.com/gui/)
