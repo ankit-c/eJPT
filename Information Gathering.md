@@ -11,12 +11,12 @@ This page contains all the useful command and tools used for information gatheri
 
 ## Whois
 
-  *whois* can provide useful information such as:
-
-    - Owner name
-    - Street address
-    - Email address
-    - Technical details
+  whois can provide useful information such as
+  
+  * Owner name
+  * Street address
+  * Email address
+  * Technical details
 
   ```
   whois example.com
@@ -39,5 +39,7 @@ This page contains all the useful command and tools used for information gatheri
 
  * [dnsdumpster.com](https://dnsdumpster.com/)
  * [sublist3r](https://github.com/aboul3la/Sublist3r)
- ```sublist3r -d example.com  | -d : searches for subdomain```
+  ```
+  sublist3r -d example.com  | -d : searches for subdomain
+ ```
  * [virustotal.com](https://www.virustotal.com/gui/)
