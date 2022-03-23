@@ -25,8 +25,8 @@ This page contains all the useful command and tools used for information gatheri
 
   Subdomain enumeration is the technique to discover all the existing subdomains for the given host.
 
-  ```html
-  <b>Host: example.com</b>
+  ```
+  Host: example.com
 
   subdomain.host.com
 
