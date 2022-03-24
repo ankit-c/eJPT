@@ -1,0 +1,44 @@
+## Footprinting and Scanning
+
+# Ping Sweep
+Determined all the live hosts in a network range.
+	
+**Fping**
+
+Ping sweep using **_Fping_** tool
+
+```
+     fping -a -g IPRANGE
+     -a : enforces to show only alive hosts
+     -g : informs to do the ping sweep instaed of standard ping
+```
+```
+     fping -a -g 192.168.82.0/24 2>/dev/null
+     fping -a -g 192.168.82.0 192.168.82.255 2>/dev/null
+     2>/dev/null : Supress the dtandard errors
+```
+ **Nmap**
+ 
+Ping Sweep using **_Nmap_** tool.
+ 
+```
+    -sn : performs ping scan
+    nmap -sn 200.200.0.0/16
+    nmap -sn 200.200.123-12
+    nmap -sn 172.16.12.*
+    nmap -sn 200.200.12-13.*
+```
+```
+    -iL : uses hosts/ip list as input
+    nmap -sn -iL hostlist.txt
+```
+**OS Fingerprinting**
+
+Process of determining the OS used by a hosts on a network.
+
+```
+    -Pn : Do not ping or skip ping scan
+    -O  : Enable OS detection
+    nmap -Pn -O <target>
+```
+
