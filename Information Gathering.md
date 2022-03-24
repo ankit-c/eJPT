@@ -35,9 +35,16 @@ This page contains all the useful command and tools used for information gatheri
   app.example.com
   mail.example.com
   ```
+  **Subdomain enumeration using Google Dorks**
+   ```
+   site: example.com
+   
+   ```
+   * [Google Dorks Cheat Sheet](https://sansorg.egnyte.com/dl/f4TCYNMgN6)
 ## Tools
 
  * [dnsdumpster.com](https://dnsdumpster.com/)
+ * [crt.sh](https://crt.sh)
  * [sublist3r](https://github.com/aboul3la/Sublist3r)
   ```
   sublist3r -d example.com
