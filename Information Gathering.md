@@ -45,9 +45,13 @@ This page contains all the useful command and tools used for information gatheri
 
  * [dnsdumpster.com](https://dnsdumpster.com/)
  * [crt.sh](https://crt.sh)
- * [sublist3r](https://github.com/aboul3la/Sublist3r)
-  ```
-  sublist3r -d example.com
- ```
-   where flag **-d** : searches for subdomain
+ * [Knockpy](https://github.com/guelfoweb/knock)
  * [virustotal.com](https://www.virustotal.com/gui/)
+ * [Amass](https://github.com/OWASP/Amass)
+ * [SubFinder](https://github.com/projectdiscovery/subfinder)
+ * [SubExtractor](https://github.com/AngelSecurityTeam/SubExtractor)
+ * [sublist3r](https://github.com/aboul3la/Sublist3r)
+     ```
+      sublist3r -d example.com
+     ```
+     where flag **-d** : searches for subdomain
