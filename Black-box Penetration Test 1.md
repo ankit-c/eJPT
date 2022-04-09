@@ -2,11 +2,11 @@
 
 - Check if machine is reachable.
 
-```ping demo.ine.local```
+  ```ping demo.ine.local```
 
 - Run scan on the machine using nmap.
 
-```nmap -sV -A -O demo.ine.local```
+  ```nmap -sV -A -O demo.ine.local```
 
 - Identify the vulnerable service and its version and find its exploit. In this case **VCMS 1.0** is the vulnerable application running on port 80.
 
